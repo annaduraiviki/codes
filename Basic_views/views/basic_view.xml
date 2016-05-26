@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="personal_details_form_view">
+			<field name="name">personal_details.form</field>
+			<field name="model">personal.details</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Personal details" version="7.0">
+				<group string="Personal details" style="width: 40%%">
+					<field name="name" />
+					<field name="age" />
+					<field name="date_of_birth" />
+					<field name="end_date" />
+					<field name="gender" />
+					<field name="address" />
+					<field name="email" />
+					<field name="contact" />
+					</group>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="personal_details_tree_view">
+			<field name="name">personal_details.form</field>
+			<field name="model">personal.details</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="details">
+					<field name="name" />
+					<field name="age" />
+					<field name="date_of_birth" />
+					<field name="end_date" />
+					<field name="gender" />
+					<field name="address" />
+					<field name="email" />
+					<field name="contact" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="personal_details_search_view">
+			<field name="name">personal_details.calendar</field>
+			<field name="model">personal.details</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="personal_details">
+					<field name="name" />
+					<filter string="Valid" icon="terp-personal" domain="[('age','>',25)]"/>
+					<field name="age" />
+					<field name="date_of_birth" />
+					<field name="end_date" />
+					<field name="gender" />
+					<field name="address" />
+					<field name="email" />
+					<field name="contact" />
+					<filter string="Gender" context="{'group_by':'gender'}"/>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_personal_details_views">
+			<field name="name">personal_details</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="res_model">personal.details</field>
+		</record>
+
+
+		<menuitem name="Personal Details" icon="terp-project" id="personal_details_parent_menu" />
+		<menuitem name="Details1" parent="personal_details_parent_menu"
+			id="personal_details_child_menu1" />
+		<menuitem name="Details2" parent="personal_details_child_menu1"
+			id="personal_details_child_menu_main" action="action_personal_details_views" />
+	</data>
+</openerp>

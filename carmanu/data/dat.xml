@@ -1,0 +1,42 @@
+<openerp>
+	<data noupdate="0">
+	<!-- <delete model="carmanufact.carmanufact" id="recordid"/> -->
+			<record model="carmanufact0.carmanufact0" id="recordid110">
+			<field name="companyName">Toyato</field>
+			<field name="carmanuPrice">100</field>
+			<field name="carmanuTax">100</field>
+			<field name="carmanuExportPrice">100</field>
+			<field name="carQuantity">100</field>
+
+		</record>
+		<record model="carmanufact0.carmanufact0" id="recordid12">
+			<field name="companyName">MustangPorsche</field>
+			<field name="carmanuPrice">100</field>
+			<field name="carmanuTax">100</field>
+			<field name="carmanuExportPrice">100</field>
+			<field name="carQuantity">100</field>
+
+		</record>
+	</data>
+
+	<data noupdate="1">
+		<record model="carmanufact0.carmanufact0" id="recordid13">
+			<field name="companyName">jaguar</field>
+			<field name="carmanuPrice">100</field>
+			<field name="carmanuTax">100</field>
+			<field name="carmanuExportPrice">100</field>
+			<field name="carQuantity">100</field>
+		</record>
+		<!-- <delete model="carmanufact0.carmanufact0" id="recordid34"/> -->
+		<record model="carmanufact0.carmanufact0" id="recordid14">
+			<field name="companyName">TATA</field>
+			<field name="carmanuPrice">100</field>
+			<field name="carmanuTax">100</field>
+			<field name="carmanuExportPrice">100</field>
+			<field name="carQuantity">100</field>
+		</record>
+		
+
+	</data>
+
+</openerp>

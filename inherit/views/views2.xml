@@ -1,0 +1,15 @@
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="inherit_list2">
+			<field name="name">inherit list</field>
+			<field name="model">warehouse.warehouse</field>
+			<field name="inherit_id" ref="warehouse.warehouse_form_view" />
+			<field name="arch" type="xml">
+				<xpath expr="//group[@name='group3']/field[@name='prodreview']" position="after">
+					<field name="quality" />
+				</xpath>
+			</field>
+		</record>
+	</data>
+</openerp>
