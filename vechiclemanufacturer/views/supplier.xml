@@ -1,0 +1,63 @@
+<openerp>
+<data>
+	<record model="ir.ui.view" id="supplier_list">
+		<field name="name">supplier list</field>
+		<field name="model">supplier.car</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="id" />
+				<field name="supplier_name" />
+				<field name="part_regnumber"/>
+				<field name="parts_Name"/>
+				<field name="date_purchased"/>
+				<field name="product_price"/>
+				<field name="product_quantity"/>
+				<field name="product_tax"/>
+				<field name="total_price"/>
+				<field name="address"/>
+				<field name="cust_id" widget="many2onebutton" />
+			</tree>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="supplier_form_views">
+	<field name="name">supplier form</field>
+	<field name="model">supplier.car</field>
+	<field name="arch" type="xml">
+		<form string="supplier management">
+		<sheet>
+		<group>
+		<separator string=" SUPPLIER DETAILS" col="2" colspan="6"/> 
+				<field name="id" />
+				<field name="supplier_name" />
+				<field name="part_regnumber"/>
+				<field name="parts_Name"/>
+				<field name="date_purchased" widget="date"/>
+				<field name="product_price"/>
+				<field name="product_quantity"/>
+				<field name="product_tax"/>
+				<field name="total_price" />
+				<field name="address"/>
+				<field name="cust_id" placeholder=" Please provide Customer ID to update price"/>
+		</group>
+		</sheet>		
+		</form>
+	</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="supplier_action_window">
+			<field name="name">suppliermanagement</field>
+			<field name="res_model">supplier.car</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="usage">menu</field>
+	</record>
+	
+	
+		<!-- <menuitem name="carmanufactureTRAINEEAPP" id="carmenuID_menu" /> -->
+		
+		<menuitem name="SUPPLIER MANAGEMENT" id="supplier_manage" parent="ProductioID_menu" />
+		<menuitem name="supplier management" id="supplier_parts1" parent="supplier_manage" action="supplier_action_window" />
+	
+	</data>
+</openerp>

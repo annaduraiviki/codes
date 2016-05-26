@@ -1,0 +1,18 @@
+
+<openerp>
+    <data>
+ 
+<report
+    id="action_report_customer_car"
+    model="customer.car"
+    string="Attendance Report"
+    report_type="qweb-pdf"
+    file="customer_details.report_customer"
+    name="customer_details.report_customer"
+/>
+
+
+
+</data>
+</openerp>
+ 

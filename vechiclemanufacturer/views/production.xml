@@ -1,0 +1,60 @@
+<openerp>
+<data>
+	
+	
+	<record model="ir.ui.view" id="vechicle_form_views">
+	<field name="name">production form</field>
+	<field name="model">production.vechicle</field>
+	<field name="arch" type="xml">
+		<form string="vechile production">
+			<sheet>
+				<group colspan="2">
+				
+					<field name="id" />
+					<field name="carmanufacturer" />
+					<field name="carmodel" />
+					<field name="register_number" />
+					<field name="service" widget="one2many_list"  readonly="1"/>
+					<field name="parts" readonly="1"/>
+					<field name="manufacturing_date" />
+					<field name="mrp" />
+					<field name="tax" />
+					<field name="total_cost" />
+					
+				</group>
+			</sheet>
+		</form>
+	</field>
+</record>	
+	
+	<record model="ir.ui.view" id="vechicle_list">
+		<field name="name">production list</field>
+		<field name="model">production.vechicle</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="id" />
+				<field name="carmanufacturer" />
+				<field name="carmodel" />
+				<field name="register_number" />
+				<field name="service" />
+				<field name="parts"/>
+				
+				
+			</tree>
+		</field>
+	</record>
+	<record model="ir.actions.act_window" id="production_action_window">
+			<field name="name">Production</field>
+			<field name="res_model">production.vechicle</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			
+	</record>
+	
+	<menuitem name="vechicleManagementAPP" id="ProductioID_menu" />
+
+		<menuitem name="Productcar" id="car_prod" parent="ProductioID_menu" />
+		<menuitem name="products" id="car_prod1" parent="car_prod" action="production_action_window" />
+	
+	</data>
+</openerp>

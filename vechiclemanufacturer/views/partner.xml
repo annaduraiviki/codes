@@ -1,0 +1,35 @@
+
+<openerp>
+	<data>
+		
+		<record model="ir.ui.view" id="partner_instructor_form_view">
+			<field name="name">partner.instructor</field>
+			<field name="model">part.samp</field>
+			<field name="inherit_id" ref="customer_form_views" />
+			<field name="arch" type="xml">
+				<!-- <notebook position="inside"> <page string="Sessions"> <group> -->
+				<!-- <field name="customer_name" position="after"> -->
+				<xpath expr="//sheet/group/field[@name='customer_avatar']" position="after">
+					<field name="instructor" />
+				</xpath>
+				<!-- </field>
+				<field name="session_ids"/>
+				</group> </page> </notebook> -->
+			</field>
+		</record>
+		
+		
+			
+		
+		<record model="ir.actions.act_window" id="contact_list_action">
+			<field name="name">Contacts</field>
+			<field name="res_model">part.samp</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="partner_instructor_form_view"/>
+		</record>
+		
+		<menuitem id="configuration_menu" name="Configuration"	parent="ProductioID_menu" />
+		<menuitem id="contact_menu" name="Contacts" parent="configuration_menu"	action="contact_list_action" />
+
+	</data>
+</openerp> 

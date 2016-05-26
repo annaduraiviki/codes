@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<openerp>
+   <data>
+       <template id="report_customer">
+             <t t-call="report.html_container">
+                 <t t-foreach="docs" t-as="o">
+                      <t t-call="report.internal_layout">
+                            <div class="page">
+                    <div class="oe_structure"/>
+                    <div>
+                        <br><br><br><br><br><br></br></br></br></br></br></br>
+                        <strong><center>Attendance report of <span t-field="o.id"/></center></strong><hr/>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td class="text-center">
+                                    <strong>REPORT</strong>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="o.customer_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <strong>CAR MODEL</strong>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="o.car_model"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <strong>carRegister NUMBER</strong>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="o.car_reginfo"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                 </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</data>
+</openerp>

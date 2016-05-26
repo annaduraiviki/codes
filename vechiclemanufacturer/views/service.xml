@@ -1,0 +1,58 @@
+<openerp>
+<data>
+	<record model="ir.ui.view" id="service_list_views">
+		<field name="name">service list</field>
+		<field name="model">service.vechicle</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="id" />
+				<field name="car_model_name" widget="many2one_clickable"/>
+				<field name="partname" />
+				<field name="state" />
+				<field name="parts_available"/>
+				<field name="totparts" />
+				<field name="costprice"/>
+				<field name="service_charge"/>
+				<field name="totcost"/>
+				
+			</tree>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="service_form">
+	<field name="name">service form</field>
+	<field name="model">service.vechicle</field>
+	<field name="arch" type="xml">
+		<form string="vechile production">
+		<sheet>
+		<group>
+				<field name="id" />
+				<field name="car_model_name" />
+				<field name="partname" />
+				<field name="state" />
+				<field name="parts_available"/>
+				<field name="totparts" />
+				<field name="costprice"/>
+				<field name="service_charge"/>
+				<field name="totcost"/>
+		</group>		
+		</sheet>		
+		</form>
+	</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="service_action_window">
+			<field name="name">service</field>
+			<field name="res_model">service.vechicle</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="usage">menu</field>
+	</record>
+	
+	
+
+		<menuitem name="CarService" id="car_service" parent="ProductioID_menu" />
+		<menuitem name="CarService" id="car_service1" parent="car_service" action="service_action_window" />
+	
+	</data>
+</openerp>

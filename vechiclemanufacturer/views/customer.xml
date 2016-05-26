@@ -1,0 +1,98 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="customer_list">
+			<field name="name">customer list</field>
+			<field name="model">customer.car</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="id" />
+					<field name="customer_name" />
+					<field name="car_model" />
+					<field name="car_regnumber" />
+					<field name="address" />
+					<field name="total_cost" />
+					<!-- <field name=""/> -->
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="customer_form_views">
+			<field name="name">customer form</field>
+			<field name="model">customer.car</field>
+			<field name="arch" type="xml">
+				<form string="customer">
+					<sheet>
+						<group>
+							<group col="2" />
+							<separator string="CUSTOMER GENERAL INFORMATION"
+								colspan="2" />
+							<field name="id" />
+							<field name="customer_name" />
+							<field name="car_model" widget="selection" />
+							<field name="car_regstate" />
+							<field name="car_regnumber" />
+							<field name="car_reginfo" />
+						</group>
+						<group>
+
+							<field name="customer_avatar" widget='image' class="oe_avatar" />
+						</group>
+						<notebook>
+							<page string="Customer details">
+								<group>
+									<group col="2" colspan="2" />
+									<separator string="CUSTOMER PERSONAL INFORMATION"
+										colspan="2" />
+
+									<field name="cus_mobilenumb" />
+									<field name="address" />
+									<field name="mailaddress" widget="email" />
+
+								</group>
+							</page>
+							<page string="Customer Expenditures">
+								<group>
+									<group col="2" colspan="2" />
+									<field name="total_cost" readonly="1">
+
+										<tree>
+
+											<field name="id" />
+											<field name="supplier_name" />
+											<field name="part_regnumber" />
+											<field name="parts_Name" />
+											<field name="date_purchased" widget="datetime" />
+											<field name="product_price" sum="Total Product price" />
+											<field name="product_quantity" />
+											<field name="product_tax" />
+											<field name="total_price" sum="Total price" />
+
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="customer_action_window">
+			<field name="name">customer</field>
+			<field name="res_model">customer.car</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="usage">menu</field>
+		</record>
+
+
+		<!-- <menuitem name="carmanufactureTRAINEEAPP" id="carmenuID_menu" /> -->
+
+		<menuitem name="CUSTOMER MANAGEMENT" id="customer_manage"
+			parent="ProductioID_menu" />
+		<menuitem name="customer management" id="customer_parts1"
+			parent="customer_manage" action="customer_action_window" />
+
+	</data>
+</openerp>
