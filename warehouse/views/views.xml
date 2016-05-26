@@ -1,0 +1,128 @@
+<openerp>
+	<data>
+
+		<!-- actions opening views on models -->
+		<record model="ir.ui.view" id="warehouse.list">
+			<field name="name">warehouse list</field>
+			<field name="model">warehouse.warehouse</field>
+			<field name="arch" type="xml">
+				<tree>
+
+					<field name="prodname" />
+					<field name="prodtype" />
+					<field name="prodsubname" />
+					<field name="quantity" />
+					<field name="proddescription" />
+					<field name="proddate" />
+					<field name="prodquality" />
+					<field name="prodcheck" />
+					<field name="prodmprice" />
+					<field name="prodtax" />
+					<field name="prod_mrp" />
+					<field name="timee" />
+					<field name="prodfulldetails" />
+					<field name="images" />
+					<field name="prodreview" invisible="0" />
+					<field name="warehousemoney" />
+					<field name="proddiscount" />
+					<field name="afterdiscounts" />
+					<!-- <field name="bloodtype"/> -->
+					<field name="sels" />
+
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="warehouse_form_view">
+			<field name="name">warehouse.form</field>
+			<field name="model">warehouse.warehouse</field>
+			<field name="arch" type="xml">
+				<form string="Annawarehouse">
+					<sheet>
+						<notebook>
+							<page string="step1">
+								<group name="group1">
+									<group colspan="4" />
+									<group colspan="2" col="2" />
+									<separator string="PRODUCT DESCRIPTION" colspan="2" />
+									<field name="prodname" />
+									<field name="prodtype" />
+									<field name="prodsubname" />
+									<form string="In inside form">
+										<field name="quantity" />
+										<field name="proddescription" />
+										<field name="proddate" />
+									</form>
+									<field name="prodquality" />
+									<field name="prodcheck" />
+								</group>
+							</page>
+							<page string="step2">
+								<group name="group2">
+									<group colspan="4" />
+									<group colspan="2" col="2" />
+									<separator string="PRODUCT PRICE" colspan="2" />
+									<field name="prodmprice" />
+									<field name="prodtax" />
+									<field name="prod_mrp" />
+									<field name="timee" />
+									<field name="prodfulldetails" />
+								</group>
+							</page>
+							<page string="step3">
+								<group name="group3">
+									<group colspan="4" />
+									<group colspan="2" col="2" />
+									<separator string="PRODUCT REVIEWS" colspan="2" />
+									<field name="images" widget="image" class="oe_avatar oe_right" />
+									<field name="prodreview" invisible="0" />
+									<field name="warehousemoney" />
+									<field name="proddiscount" />
+									<field name="afterdiscounts" />
+									<!-- <field name="bloodtype"/> -->
+									<field name="sels" />
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="warehouse_search_view">
+			<field name="name">warehouse search</field>
+			<field name="model">warehouse.warehouse</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="prodname" />
+					<field name="proddescription" />
+				</search>
+			</field>
+		</record>
+
+
+
+
+		<record model="ir.actions.act_window" id="warehouse_action_window">
+			<field name="name">warehouse window</field>
+			<field name="res_model">warehouse.warehouse</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+
+
+		<!-- Top menu item -->
+
+		<menuitem name="warehouseTraineeAppSODEXIS" id="warehouseAPPsodo_menu" />
+
+		<menuitem name="Products purchase" id="warehouse_purchase"
+			parent="warehouseAPPsodo_menu" />
+
+		<menuitem name="products" id="warehouse_product" parent="warehouse_purchase"
+			action="warehouse_action_window" />
+
+		<menuitem name="productsSamp" id="warehouse_product2" parent="warehouse_product"
+			action="warehouse_action_window" />
+
+
+	</data>
+</openerp>

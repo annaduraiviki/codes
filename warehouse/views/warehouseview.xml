@@ -1,0 +1,61 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id ="warehouse">
+		  <field name ="name">warehouse2 list</field>
+		  <field name ="model">warehousetab2.warehousetab2</field>
+		  <field name ="arch" type ="xml">
+		  	<tree>
+		  		<field name ="id"/>
+		  		<field name="sale"/>
+		  		<field name="salename"/>
+		  		<field name="quantity"/>
+		  		<field name="amount"/>
+		  		<field name="done"/>
+		  		<field name="activee"/>
+		  		<field name="doi"/>
+		  	</tree>
+		  </field>	
+		  </record>
+
+	<record model="ir.ui.view" id="warehouseview">
+		<field name="name">warehouse2 form</field>
+		<field name="model">warehousetab2.warehousetab2</field>
+		<field name="arch" type="xml">
+		<form>
+			<sheet>
+				<group colspan="4">
+				<separator string="Food Storage" colspan="2" />
+					<field name="id"/>
+					<field name="sale" />
+					<field name="salename"/>
+					<field name="quantity" />
+					<field name="amount"/>
+					<field name="done"/>
+		  		    <field name="activee"/>
+		  		    <field name="doi"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="warehouse_product_action">
+	<field name="name">warehouse2 window</field>
+	<field name="res_model">warehousetab2.warehousetab2</field>
+	<field name="view_mode">tree,form</field>
+	</record>
+		
+		
+	
+		
+		<!-- <menuitem name="Products purchase" id="warehouse_purchase" parent="warehouseAPPsodo_menu" /> -->
+		<!-- <menuitem name="warehouseTraineeAppSODEXIS" id="warehouseAPPsodo_menu2" /> -->
+		
+		<menuitem name="Food Products" id="warehouse_food" parent="warehouseAPPsodo_menu" />
+		
+		<menuitem name="Food Storage" id="warehouse_food2" parent="warehouse_food" action="warehouse_product_action"/>     
+		          
+	
+	
+	  </data>
+</openerp>
