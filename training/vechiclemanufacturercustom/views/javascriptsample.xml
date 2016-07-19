@@ -1,0 +1,27 @@
+<openerp>
+    <data>
+	<!-- Adds all assets in Odoo -->
+        <template id="assets_backend" name="static_resources_demo assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+            
+		         <!-- All links to CSS and JS files should be added in here. -->
+            </xpath>
+        </template>
+    </data>
+</openerp>
+
+
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+	Adds all assets in Odoo
+        <template id="assets_backend" name="static_resources_demo assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+		These links will be called when loading your Odoo
+                <link rel="stylesheet" href="/static_resources_demo/static/src/css/cssfile.css"/>
+            </xpath>
+        </template>
+    </data>
+</openerp> -->

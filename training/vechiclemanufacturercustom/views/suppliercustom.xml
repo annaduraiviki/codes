@@ -1,0 +1,98 @@
+<openerp>
+	<data>
+		<!-- <record model="ir.ui.view" id="suppliervms_form_view"> <field name="name">supplier.custom</field> 
+			<field name="model">suppliercustom.vms</field> <field name="inherit_id" ref="vechiclemanufacturer.supplier_form_views" 
+			/> <field name="arch" type="xml"> <xpath expr="//field[@name='supplier_name']" 
+			position="after"> <field name="supplier_fax" placeholder="fax number" /> 
+			</xpath> <xpath expr="//field[@name='cust_id']" position="replace"> <field 
+			name="customer_id" /> </xpath> <notebook position="inside"> <page string="Sessions"> 
+			<group> <field name="customer_name" position="after"> </field> <field name="session_ids" 
+			/> </group> </page> </notebook> </field> </record> -->
+			
+			
+			
+		<record model="ir.ui.view" id="suppliervms1_form_view" >
+			<field name="name"> supplier.custom1</field>
+			<field name="model">suppliercustom.vms</field>
+			<field name="arch" type="xml">
+				<form>
+				<sheet>
+				<header>
+			
+	    			<button string="New" type="object" name="new_func" attrs="{'invisible': [('statusbar_custom', '=', 'new')]}"/>
+	    <!--The oe_highlight class gives the button a red color when it is saved.
+	    It is usually used to indicate the expected behaviour. -->
+	    			<button string="Draft" type="object" name="draft_func" class="oe_highlight" attrs="{'invisible': [('statusbar_custom','!=','draft')]}"/>
+	    			<button string="Cancel" type="object" name="cancel_func" attrs="{'invisible': [('statusbar_custom','=','cancel')]}"/>
+	    			<button string="confirm" type="object" name="confirm_func" attrs="{'invisible': [('statusbar_custom','=','confirm')]}"/>
+	    			<button string="done" type="object" name="done_func" attrs="{'invisible': [('statusbar_custom','=','done')]}"/>
+	    <!--This will create the statusbar, thanks to the widget. -->
+	    			<field name="statusbar_custom" widget="statusbar"/>
+	    
+				</header>
+				<group col="2" colspan="2">
+					
+					<separator string="Supplier Form" colspan="4" />
+					<field name="id" />
+					<field name="supplier_name" />
+					<field name="part_regnumber" />
+					<field name="parts_Name" />
+					<field name="date_purchased" />
+				</group>
+				<group cols="6" colspan="2">	
+					<field name="product_price"/>
+					<field name="product_quantity" />
+					<field name="product_tax" />
+					<field name="total_price" sum="Total values" widget="monetary" />
+					<field name="supplier_fax" />
+					<separator string="Customer selection" colspan="4" />
+					<field name="customer_id" widget="many2onebutton" />
+				</group>
+				</sheet>
+
+					
+				</form>
+			</field>
+
+
+		</record>
+
+		<record model="ir.ui.view" id="suppliervms_tree_list">
+			<field name="name">supplier.custom</field>
+			<field name="model">suppliercustom.vms</field>
+			
+			<field name="arch" type="xml">
+				<tree>
+					<field name="id" />
+					<field name="supplier_name" />
+					<field name="part_regnumber" />
+					<field name="parts_Name" />
+					<field name="date_purchased" />
+					<field name="product_price"/>
+					<field name="product_quantity" />
+					<field name="product_tax" />
+					<field name="total_price" sum="Total values" widget="monetary" />
+
+
+					<field name="customer_id" widget="many2onebutton" />
+				</tree>
+			</field>
+
+		</record>
+
+
+
+		<record model="ir.actions.act_window" id="suppliervms_list_action">
+			<field name="name">SUPPLIER MANAGEMENT</field>
+			<field name="res_model">suppliercustom.vms</field>
+			<field name="view_mode">tree,form</field>
+			<!-- <field name="view_id" ref="suppliervms_form_view"/> -->
+		</record>
+
+		<menuitem name="VMSapp" id="vmsID_menu" />
+		<menuitem id="supplier_id" name="Supplier Management" parent="vmsID_menu" />
+		<menuitem id="supplier_menu" name="Supplier" parent="supplier_id"
+			action="suppliervms_list_action" />
+
+	</data>
+</openerp> 

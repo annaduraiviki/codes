@@ -1,0 +1,53 @@
+<openerp>
+<data>
+	<record model="ir.ui.view" id="countrystatebase_list1">
+		<field name="name">countrystatebase list</field>
+		<field name="model">basecountry.custom</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="country_base" />
+				<field name="state_base" />
+				<field name="area_base"/>
+				<!-- <field name="mail"/>
+				<field name="gender"/> -->
+				
+			</tree>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="countrystatebase_form_views">
+	<field name="name">countrystatebase form</field>
+	<field name="model">basecountry.custom</field>
+	<field name="arch" type="xml">
+		<form >
+		<sheet>
+		<group>
+			
+				<field name="country_base" />
+				<field name="state_base" />
+				<field name="area_base"/>
+				<!-- <field name="mail"/>
+				<field name="gender"/> -->
+				
+		</group>
+		</sheet>		
+		</form>
+	</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="countrystatebase_action_window">
+			<field name="name">countrystatebase</field>
+			<field name="res_model">basecountry.custom</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="usage">menu</field>
+	</record>
+	
+	
+		<!-- <menuitem name="delegationInhert" id="delegation_menu" /> --> 
+		
+		<menuitem name="Configure country" id="config_countrybase" parent="countrystatecustom_menu" />
+		<menuitem name="config " id="config_countrybase1" parent="config_countrybase" action="countrystatebase_action_window" />
+	
+	</data>
+</openerp>

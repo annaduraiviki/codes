@@ -1,0 +1,14 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="inherit_lastname_list">
+			<field name="name">inherit list</field>
+			<field name="model">customer.car</field>
+			<field name="inherit_id" ref="vechiclemanufacturer.customer_form_views" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='customer_name']" position="after">
+					<field name="cus_last_name" style="width:15%%" placeholder="Initial Here" />
+				</xpath>
+			</field>
+		</record>
+	</data>
+</openerp>

@@ -1,0 +1,123 @@
+
+<openerp>
+	<data>
+
+		<!-- <record model="ir.ui.view" id="customervms_form_view"> <field name="name">customer.custom</field> 
+			<field name="model">customercustom.vms</field> <field name="inherit_id" ref="vechiclemanufacturer.customer_form_views" 
+			/> <field name="arch" type="xml"> <xpath expr="//sheet/group/field[@name='customer_avatar']" 
+			position="before"> <field name="customer_fax" placeholder="fax number" /> 
+			</xpath> <xpath expr="//field[@name='total_cost']" position="replace"> <field 
+			name="supplier_id" readonly="1" /> </xpath> <notebook position="inside"> 
+			<page string="Sessions"> <group> <field name="customer_name" position="after"> 
+			</field> <field name="session_ids"/> </group> </page> </notebook> </field> 
+			</record> -->
+
+		<record model="ir.ui.view" id="customervms_form_view1">
+			<field name="name"> customervms.forms </field>
+			<field name="model">customercustom.vms</field>
+
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<sheet>
+							<group>
+								<group col="4" />
+								<separator string="CUSTOMER GENERAL INFORMATION"
+									colspan="4" />
+
+								<field name="id" />
+								<field name="customer_name" placeholder=" Please enter customer name here" />
+								<field name="regular_customer" attrs="{'invisible':[('customer_name','=',False)]}" />
+								<field name="car_model" widget="selection" />
+								<field name="car_regstate" placeholder="Customer state" />
+								<field name="car_regnumber" placeholder=" Customer vechicle register number" />
+								<field name="car_reginfo" />
+								<field name="customer_fax" />
+								<!-- <field name="supplier_id"/> -->
+							</group>
+							<group>
+
+								<field name="customer_avatar" widget='image' class="oe_left oe_avatar" />
+								<field name="priority" widget='priority' class="oe_left " />
+							</group>
+							<notebook>
+								<page string="Customer details">
+									<group>
+										<group col="2" colspan="2" />
+										<separator string="CUSTOMER PERSONAL INFORMATION"
+											colspan="2" />
+
+										<field name="cus_mobilenumb" placeholder="Specify Customer's mobile number" />
+										<field name="address" placeholder="customer's Address" />
+										<field name="mailaddress" widget="email"
+											placeholder="provide customer valid email Id" />
+
+									</group>
+								</page>
+								<page string="Customer Expenditures">
+									<group>
+										<group col="2" colspan="2" />
+										<field name="supplier_id" readonly="1">
+
+											<tree>
+
+												<field name="statusbar_custom" widget="statusbar" />
+												<field name="id" />
+												<field name="supplier_name" />
+												<field name="part_regnumber" />
+												<field name="parts_Name" />
+												<field name="date_purchased" widget="datetime" />
+												<field name="product_price" widget="payement"
+													sum="Total Product price" />
+												<field name="product_quantity" />
+												<field name="product_tax" />
+												<field name="total_price" sum="Total values" nolabel="0"
+													class="oe_subtotal_footer" />
+
+											</tree>
+
+										</field>
+									</group>
+								</page>
+							</notebook>
+						</sheet>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="customervms_tree_list1">
+			<field name="name"> customervms.tree</field>
+			<field name="model">customercustom.vms</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="id" />
+					<field name="customer_name" />
+					<field name="car_model" />
+					<field name="car_reginfo" />
+					<!-- <field name="total_cost" /> -->
+					<field name="supplier_id" />
+					<field name="priority" widget='priority' />
+
+				</tree>
+			</field>
+
+		</record>
+
+
+
+
+		<record model="ir.actions.act_window" id="customervms_list_action">
+			<field name="name">CUSTOMER MANAGEMENT</field>
+			<field name="res_model">customercustom.vms</field>
+			<field name="view_mode">tree,form</field>
+			<!-- <field name="view_id" ref="customervms_form_view1" /> -->
+		</record>
+
+		<menuitem name="VMSapp" id="vmsID_menu" />
+		<menuitem id="customer_id" name="Customer Management" parent="vmsID_menu" />
+		<menuitem id="customer_menu" name="customer" parent="customer_id"
+			action="customervms_list_action" />
+
+	</data>
+</openerp> 

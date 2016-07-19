@@ -1,0 +1,56 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="carmanufact3_list">
+			<field name="name">carm list</field>
+			<field name="model">carmanufact3.carmanufact3</field>
+				<field name="arch" type="xml">
+				<tree string="Session Tree" >
+					<field name="id" />
+					<field name="name1" />
+					<field name="nameofparts1" />
+					<field name="state"/>
+				
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="carmanu3_form_view">
+			<field name="name">carm form</field>
+			<field name="model">carmanufact3.carmanufact3</field>
+			<field name="arch" type="xml">
+				<form string="caranna">
+					<sheet>
+						<!-- <header><button name="do_clear_done" type="object" string="Clear 
+							All Done" /></header> -->
+						<group>
+							<group colspan="5" />
+							<seprator string="Description" colspan="4" />
+							<field name="id" />
+							<field name="name1" placeholder="part name" />
+							<field name="nameofparts1" />
+							<field name="state"/>
+							<field name="carmodelname"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+
+		<record model="ir.actions.act_window" id="car_action_window3">
+			<field name="name">carMwindow</field>
+			<field name="res_model">carmanufact3.carmanufact3</field>
+			<!-- <field name="limit">20</field> -->
+			<field name="view_mode">tree,form,calendar</field>
+		</record>
+
+		<!-- Menu items -->
+		
+        <menuitem name="car parts" id ="car_shop4" parent="carmenuID_menu" />
+		<menuitem name="carsparts" id="car_shop5" parent="car_shop4"
+			action="car_action_window3" />
+
+
+	</data>
+
+</openerp>

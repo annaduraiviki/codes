@@ -1,0 +1,53 @@
+<openerp>
+<data>
+	<record model="ir.ui.view" id="stud2_list">
+		<field name="name">stud2 list</field>
+		<field name="model">stu2</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="stu_id" />
+				<field name="city" />
+				<field name="phone"/>
+				<field name="mail"/>
+				<field name="gender"/>
+				
+			</tree>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="stud2_form_views">
+	<field name="name">stud3 form</field>
+	<field name="model">stu2</field>
+	<field name="arch" type="xml">
+		<form string="delegations">
+		<sheet>
+		<group>
+			
+				<field name="stu_id" />
+				<field name="city" />
+				<field name="phone"/>
+				<field name="mail"/>
+				<field name="gender"/>
+				
+		</group>
+		</sheet>		
+		</form>
+	</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="stud2_action_window">
+			<field name="name">stud4</field>
+			<field name="res_model">stu2</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="usage">menu</field>
+	</record>
+	
+	
+		<!-- <menuitem name="delegationInhert" id="delegation_menu" /> -->
+		
+		<menuitem name="delegation2Menu" id="deleg2_par" parent="delegation_menu" />
+		<menuitem name="delegation2 " id="delg_parts3" parent="deleg2_par" action="stud2_action_window" />
+	
+	</data>
+</openerp>

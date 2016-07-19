@@ -1,0 +1,53 @@
+<openerp>
+<data>
+	<record model="ir.ui.view" id="countrystatecustom_list1">
+		<field name="name">countrystatecustom list</field>
+		<field name="model">countrystate.custom</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="country_base" />
+				 <field name="state_custom" />
+				<!--<field name="area_custom"/> -->
+				<!-- <field name="mail"/>
+				<field name="gender"/> -->
+				
+			</tree>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="countrystatecustom_form_views">
+	<field name="name">countrystatecustom form</field>
+	<field name="model">countrystate.custom</field>
+	<field name="arch" type="xml">
+		<form string="delegations">
+		<sheet>
+		<group>
+				<!-- <field name="country_custom"/> -->
+				<field name="country_base" />
+				 <field name="state_custom" />
+				<field name="area_base"/> 
+				<!-- <field name="mail"/> -->
+				<!-- <field name="gender"/> -->
+				
+		</group>
+		</sheet>		
+		</form>
+	</field>
+	</record>	
+	
+	<record model="ir.actions.act_window" id="countrystatecustom_action_window">
+			<field name="name">countrystatecustoms</field>
+			<field name="res_model">countrystate.custom</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="usage">menu</field>
+	</record>
+	
+	
+		<menuitem name="CustomAddress" id="countrystatecustom_menu" /> 
+		
+		<menuitem name="Address country" id="config_countrycustom" parent="countrystatecustom_menu" />
+		<menuitem name="Address " id="config_countrycustom1" parent="config_countrycustom" action="countrystatecustom_action_window" />
+	
+	</data>
+</openerp>

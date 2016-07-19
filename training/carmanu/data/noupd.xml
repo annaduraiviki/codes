@@ -1,0 +1,32 @@
+<openerp>
+	<data noupdate="0">
+		<record forcecreate="False" model="carmanufact2.carmanufact2" id="recordid111">
+			<field name="name">Toyato</field>
+			<field name="age">100</field>
+		</record>
+		<record model="carmanufact2.carmanufact2" id="recordid222">
+			<field name="name">MustangPorsche</field>
+			<field name="age">100</field>
+		</record>
+		<record model="carmanufact2.carmanufact2" id="recordid333">
+			<field name="name">jaguar</field>
+			<field name="age">100</field>
+		</record>
+		<!-- <delete model="carmanufact2.carmanufact2" id="recordid"/>  -->
+	</data>
+	<data noupdate="1">
+		<record model="carmanufact2.carmanufact2" id="recordid1111">
+			<field name="name">Lanson</field>
+			<field name="age">100</field>
+		</record>
+		<record model="carmanufact2.carmanufact2" id="recordid2222">
+			<field name="name">Porsche</field>
+			<field name="age">100</field>
+		</record>
+		<record forcecreate="False" model="carmanufact2.carmanufact2" id="recordid3333">
+			<field name="name">Lamborgini</field>
+			<field name="age">100</field>
+		</record>
+		<!-- <delete model="carmanufact2.carmanufact2" id="recordid"/>  -->
+	</data>
+</openerp>

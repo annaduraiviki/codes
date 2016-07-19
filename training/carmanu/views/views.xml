@@ -1,0 +1,115 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="carmanufact_lists">
+			<field name="name">carm list</field>
+			<field name="model">carmanufact0.carmanufact0</field>
+
+			<field name="arch" type="xml">
+				<tree> <!--string="My tree View" colors="red:state in ['cancel','close'];#64B5F6:state=='running';#0D47A1:state=='extend';green:state=='complete';#FF4081:state=='finish'" -->
+					<field name="id" />
+					<field name="companyName" />
+					<field name="carmodel" widget="selection" />
+					<field name="carDescription" />
+					<field name="carmanuDate" />
+					<field name="carmanuPrice" />
+					<field name="carmanuTax" />
+					<field name="carExportTrue" />
+					<field name="carmanuExportPrice" />
+					<field name="carImage" />
+					<field name="carQuantity" />
+					<field name="carTotCost" />
+					<field name="done" />
+					<field name="activee" />
+					<field name="work_email" widget="email" />
+					<field name="priority" widget="priority" />
+					<field name="mo" widget="many2one_list" />
+					<field name="om" widget="one2many_list" />
+					<field name="pid3" />
+					<field name="pid4" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="carmanu_form_views">
+			<field name="name">carm form</field>
+			<field name="model">carmanufact0.carmanufact0</field>
+			<field name="arch" type="xml">
+				<form string="caranna">
+					<sheet>
+						<notebook>
+							<!-- <header><button name="do_clear_done" type="object" string="Clear 
+								All Done" /></header> -->
+							<page>
+								<group>
+									<group col="4" />
+									<group colspan="2" col="2" />
+									<separator string="Description" colspan="4" />
+									<field name="id" />
+									<field name ="category_id" widget="many2many_tags" />
+									<field name ="cate" widget="many2many_tags" />
+									<field name="companyName" placeholder="Company name" />
+									<field name="carmodel" />
+									<field name="carDescription" />
+									<field name="carmanuDate" />
+									<field name="carmanuPrice" widget="monetary" />
+									<field name="carmanuTax" />
+									<field name="carExportTrue" />
+									<field name="carmanuExportPrice" />
+									<separator string="Description" colspan="4" />
+									<field name="carImage" widget="image" />
+									<field name="carQuantity" />
+									<field name="carTotCost" />
+									<field name="done" />
+									<field name="activee" />
+									<field name="check" />
+									<field name="work_email" widget="email" />
+									<field name="priority" widget="priority" />
+								</group>
+								<group>
+								<group col="4" />
+									<group colspan="2" col="2" />
+									<!-- <field name="progressbar" widget="progressbar"/> -->
+									<field name="mo" widget="many2one_list" />
+									<field name="om" widget="one2many_list" />
+									<field name="pid3" />
+									<field name="pid4" />
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="carmanu_search_view">
+			<field name="name">carmanu</field>
+			<field name="model">carmanufact0.carmanufact0</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="car_details">
+					<filter string="MRP above 200000" icon="terp-personal"
+						domain="[('carTotCost','>',200000)]" />
+					<filter string="companyname" context="{'group_by':'companyName'}" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="car_action_window">
+			<field name="name">carMwindow</field>
+			<field name="res_model">carmanufact0.carmanufact0</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="usage">menu</field>
+		</record>
+
+		<!-- Menu items -->
+		<menuitem name="carManuSamp" id="carmenuID_menu" />
+
+		<menuitem name="Productcar" id="car_prod" parent="carmenuID_menu" />
+		<menuitem name="products" id="car_product" parent="car_prod"
+			action="car_action_window" />
+
+
+	</data>
+
+</openerp>
